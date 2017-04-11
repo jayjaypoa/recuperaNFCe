@@ -41,6 +41,8 @@ public class Main {
 		
 		System.out.println(urlFinal);
 		
+		urlFinal = "https://www.sefaz.rs.gov.br/ASP/AAE_ROOT/NFE/SAT-WEB-NFE-COM_2.asp?chaveNFe=43170433014556019024652090000079951878545252&HML=false";
+		
 		System.out.println("1 =========================================================");
 		
 		URL paginaBase = new URL(urlFinal);
@@ -51,82 +53,6 @@ public class Main {
         while ((inputLine = in.readLine()) != null)
             System.out.println(inputLine);
         in.close();
-        
-        System.out.println("2 =========================================================");
-        
-        String url = urlFinal;
-        URL obj = new URL(url);
-
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        
-        // add request header
-        con.setRequestMethod("POST");
-        con.setRequestProperty("User-Agent", "Mozilla/5.0  etc.");
-        con.setRequestProperty("Accept-Language", "en-US,en;q=0.8");
-        con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        con.setRequestProperty("Connection", "keep-alive");
-        con.setRequestProperty("Accept", "*/*");
-        con.setRequestProperty("Accept-Encoding", "gzip,deflate,sdch");
-
-     // Send post request
-        con.setDoOutput(true);
-        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-        wr.writeBytes("chaveNFe=43170293015006002833651120000969211356021104");
-        wr.flush();
-        wr.close();
-
-        int responseCode = con.getResponseCode();
-
-        BufferedReader bufferIn = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        inputLine = "";
-        StringBuffer response = new StringBuffer();
-
-        while ((inputLine = bufferIn.readLine()) != null) {
-            response.append(inputLine);
-        }
-        bufferIn.close();
-        
-        //if password is not correct, my form should return false
-//        if (response.toString().equals("false"))
-//            System.out.println("FALSE  <----------");
-//        else 
-//        	System.out.println("TRUE <----------");
-
-        System.out.println("3 =========================================================");
-        
-        //Making http get request
-        HttpClient httpClientDefault1 = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(urlFinal);
-        
-        //setup headers (Server understand request throw by some browser)
-        //httpPost.setHeader("Connection", "keep-alive");
-        //httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:9.0.1) Gecko/20100101 Firefox/9.0.1");
-        //httpPost.setHeader("Accept", " text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
-        //httpPost.setHeader("Accept-Language", "en-us,en;q=0.5");
-        //httpPost.setHeader("Host", "ec2-23-20-44-83.compute-1.amazonaws.com");
-        //httpPost.setHeader("Referer",resultUrl+resultUrlAsp);
-        
-        // Set parameters
-        ArrayList<NameValuePair> nameValuePair = new ArrayList<NameValuePair>();
-        nameValuePair.add(new BasicNameValuePair("key",""));
-        nameValuePair.add(new BasicNameValuePair("txtenroll","095020693015"));
-        httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
-        //Send request
-
-        HttpResponse httpRespnse = httpClientDefault1.execute(httpPost);
-        //Get Response body
-
-        if(httpRespnse.getStatusLine().getStatusCode() != 200) {
-            InputStream in2 =  httpRespnse.getEntity().getContent();
-            byte b[] = new byte[1024] ;
-            StringBuilder html = new StringBuilder("");
-            while(in2.read(b) != -1) {
-                html.append((new String(b)).toString());
-                b = new byte[1024];
-            }
-            System.out.println(html);
-        }
 	
 	} // fim do executarRS()
 
