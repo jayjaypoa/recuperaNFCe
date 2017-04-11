@@ -32,8 +32,10 @@ public class Localidade {
 		
 		// RIO GRANDE DO SUL - RS (Sefaz RS)
 		if (this.getUF().equalsIgnoreCase("RS")){
-			params = "?chaveNFe=@CHAVE@";
-			this.setURL("https://www.sefaz.rs.gov.br/ASP/AAE_ROOT/NFE/SAT-WEB-NFE-NFC_1.asp" + params);
+			// params = "?chaveNFe=@CHAVE@";
+			// this.setURL("https://www.sefaz.rs.gov.br/ASP/AAE_ROOT/NFE/SAT-WEB-NFE-NFC_1.asp" + params);
+			params = "?chaveNFe=@CHAVE@&HML=false";
+			this.setURL("https://www.sefaz.rs.gov.br/ASP/AAE_ROOT/NFE/SAT-WEB-NFE-COM_2.asp" + params);
 		}
 		
 		if (this.getURL().isEmpty())
