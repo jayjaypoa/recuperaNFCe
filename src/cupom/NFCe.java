@@ -1,5 +1,6 @@
 package cupom;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class NFCe {
 	private String chave;
 	private Emitente emitente;
 	private Destinatario destinatario;
-	private List<Produto> produtos;
+	private ArrayList<Produto> produtos;
 	private Cobranca cobranca;
 	private InformacoesAdicionais informacoesAdicionais;
 	private String modelo;
@@ -29,7 +30,7 @@ public class NFCe {
 	public NFCe(){
 	}
 	
-	public NFCe(String chave, Emitente emitente, Destinatario destinatario, List<Produto> produtos, Cobranca cobranca,
+	public NFCe(String chave, Emitente emitente, Destinatario destinatario, ArrayList<Produto> produtos, Cobranca cobranca,
 			InformacoesAdicionais informacoesAdicionais, String modelo, String serie, Integer numero, Date dataEmissao,
 			Date dataEntradaSaida, Double valorTotal, String presencaComprador, String naturezaOperacao,
 			String tipoOperacao, String formaPagamento, String digestValue, String protocoloNFe,
@@ -81,11 +82,11 @@ public class NFCe {
 		this.destinatario = destinatario;
 	}
 
-	public List<Produto> getProdutos() {
+	public ArrayList<Produto> getProdutos() {
 		return produtos;
 	}
 
-	public void setProdutos(List<Produto> produtos) {
+	public void setProdutos(ArrayList<Produto> produtos) {
 		this.produtos = produtos;
 	}
 

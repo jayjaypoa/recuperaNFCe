@@ -10,14 +10,14 @@ public class Produto {
 	private Double quantidade;
 	private String unidade;
 	private Double valorUnitario;
-	private Double valorTotal;
+	// private Double valorTotal;
 	
 	public Produto(){
 	}
 	
 	public Produto( Integer id, String codigo, String nCM, String eAN, 
 					String descricao, Double quantidade, String unidade, 
-					Double valorUnitario, Double valorTotal ) {
+					Double valorUnitario){ // Double valorTotal
 		super();
 		this.id = id;
 		this.codigo = codigo;
@@ -27,7 +27,7 @@ public class Produto {
 		this.quantidade = quantidade;
 		this.unidade = unidade;
 		this.valorUnitario = valorUnitario;
-		this.valorTotal = valorTotal;
+		// this.valorTotal = valorTotal;
 	}
 
 	public Integer getId() {
@@ -94,6 +94,7 @@ public class Produto {
 		this.valorUnitario = valorUnitario;
 	}
 
+	/*
 	public Double getValorTotal() {
 		return valorTotal;
 	}
@@ -101,12 +102,14 @@ public class Produto {
 	public void setValorTotal(Double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
+	*/
 
 	@Override
 	public String toString() {
 		return "Produto [id=" + id + ", codigo=" + codigo + ", NCM=" + NCM + ", EAN=" + EAN + ", descricao=" + descricao
 				+ ", quantidade=" + quantidade + ", unidade=" + unidade + ", valorUnitario=" + valorUnitario
-				+ ", valorTotal=" + valorTotal + "]";
+				//+ ", valorTotal=" + valorTotal 
+				+ "]";
 	}
 	
 }
